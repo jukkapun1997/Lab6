@@ -40,7 +40,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Student getStudent(String id){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor =
+        Cursor cursor = db.query(Student.TABLE_NAME,
+                new String[]{Student.COLUMN_ID,Student.COLUMN_NAME},
+                Student.COLUMN_ID + "=?",
+                new String[]{String.valueOf(id)},null,null,null,null);
 
     }
 
